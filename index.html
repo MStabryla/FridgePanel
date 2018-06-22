@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Twoja tablica</title>
+        <style>
+            body{
+                margin:0;
+                padding:0;
+                width:100vw;
+                height:100vh;
+            }
+            .main{
+                position:relative;
+                width:100%;
+                height:100%;
+            }
+            .note-resize{
+                width:20px;
+                height:20px;
+                cursor:nw-resize;
+                position: absolute;
+                bottom:1px;
+                right:1px;
+                padding:0;
+                background: none;
+                border: none;
+            }
+            .note-resize img{
+                width:100%;
+                height:100%;
+            }
+            .note-edit,.note-resize,.note-delete{
+                background: none;
+                border: none;
+            }
+            .note-delete{
+                position: absolute;
+                top:1px;
+                right:1px;
+                padding:0;
+                cursor: pointer;
+                width:20px;
+                height:20px;
+            }
+            .note-delete img{
+                width:100%;
+                height:100%;
+            }
+            .note-edit{
+                position: absolute;
+                top:1px;
+                left:1px;
+                padding:0;
+                cursor: pointer;
+                width:20px;
+                height:20px;
+            }
+            .note-edit img{
+                width:100%;
+                height:100%;
+            }
+            .note-text{
+                width:100%;
+                height:calc( 100% - 10px );
+            }
+            .add{
+                position:absolute;
+                top:10px;
+                left:10px;
+                border:none;
+                background:none;
+            }
+            .add img{
+                width:50px;
+                height:50px;
+            }
+            .note{
+                position:absolute;
+                padding-top:20px;
+            }
+            .field{
+                position: absolute;
+            }
+            .status{
+                position:absolute;
+                top:10px;
+                right:10px;
+                font-size: 20px;
+                text-align: right;
+                width:300px;
+            }
+        </style>
+        <script src="libs/Ang.js"></script>
+        <script src="libs/Ang-routing.js"></script>
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=q2qf8zwx14nn6ghiao50bh2bg4ixgy9xtiignilfkp2q0kt2"></script>COPY CODE
+    </head>
+    <body>
+        <div ng-app="Main" ng-controller="Main" class="Main">
+            <button class="add" ng-click="add();"><img  src="img/add.png" alt="Err"/></button>
+            <div ng-repeat="note in notes" class="field">
+                    <note class="note" 
+                    elem="note"
+                    name="note.n"
+                    /*remove="remove(note);"*/
+                    ng-style="{
+                        'width': {{note.w}} + 'px',
+                        'height': {{note.h}} + 'px',
+                        'top': {{note.t}} + 'px',
+                        'left': {{note.l}} + 'px',
+                        'background-color':'white',
+                        'cursor':'move',
+                        'border':'2px groove black',
+                        'border-radius' : '5px',
+                        'z-index': '{{note.o}}'
+                    }"
+                    ></note>
+            </div>
+            <div class="status">
+                <span>Ilość aktualnych magnesów : {{notes.length}}</span><br>
+                <span>Ilość dodanych magnesów : {{id}}</span>
+            </div>
+        </div>
+        <script>
+            var app = angular.module("Main",[]);
+            console.log("TinyMCE",tinymce);
+            /*tinymce.init({
+                selection:".note-text"
+            })*/
+        </script>
+        <script src="services.js"></script>
+        <script src="directives.js"></script>
+        <script src="controllers.js"></script>
+    </body>
+</html>
