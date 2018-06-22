@@ -1,0 +1,14 @@
+if(app)
+{
+    app.config(function($routeProvider,$locationProvider){
+        $locationProvider.hashPrefix('');
+        $routeProvider.when("/",{
+            templateUrl:"start.html",
+            controller:"Start"
+        })
+        $routeProvider.when("/fr/:fridge",{
+            templateUrl:"fridge.html",
+            controller:"Main"
+        })
+    })
+}

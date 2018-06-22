@@ -1,0 +1,22 @@
+<button class="add" ng-click="add();"><img  src="img/add.png" alt="Err"/></button>
+<div ng-repeat="note in notes" class="field">
+        <note class="note" 
+        elem="note"
+        name="note.n"
+        ng-style="{
+            'width': {{note.w}} + 'px',
+            'height': {{note.h}} + 'px',
+            'top': {{note.t}} + 'px',
+            'left': {{note.l}} + 'px',
+            'background-color':'white',
+            'cursor':'move',
+            'border':'2px groove black',
+            'border-radius' : '5px',
+            'z-index': '{{note.o}}'
+        }"
+        ></note>
+</div>
+<div class="status">
+    <span>Ilość aktualnych magnesów : {{notes.length}}</span><br>
+    <span>Ilość dodanych magnesów : {{id}}</span>
+</div>
